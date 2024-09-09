@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: yellow;
+            text-align: center;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .formBlock {
+            text-align: center;
+            
+        }
+
+        .ctype {
+            justify-content: center;
+        }
+
+        #form {
+            line-height: 3;
+            border: 3px solid black;
+            text-align: center;
+            width: 60vh;
+            height: 50vh;
+        }
+
+        table {
+            width: 60vh;
+            height: 20vh;
+            text-align: center;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+
+        thead, th, td {
+            border: 2px solid black;
+        }
+
+        .table {
+            margin: 20px auto;
+        }
+
+        .billBlock {
+            margin-top: 20px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="heading"><h2>ACTB CONNECTION PORTAL</h2></div>
+    <div class="formBlock">
+        <form action="" method="post" id="form">
+            <input type="text" name="name" id="name" placeholder="customer name"><br>
+            <input type="email" name="email" id="email" placeholder="email"><br>
+            <input type="text" name="number" id="number" placeholder="mob number"><br>
+            <label for="prdtype">Type of Plan:</label>
+            <select id="type" name="prdtype">
+                <option value="pre">pre</option>
+                <option value="post">post</option>
+            </select><br>
+            <div class="ctype" style="display: flex;">
+                <label for="content">connec type :</label>
+                <div class="content" style="margin-left:10px;">
+                    <input type="radio" class="ct" id="local" name="ctype" value="local">
+                    <label for="local">local</label>
+                    
+                    <input type="radio" class="ct" id="std" name="ctype" value="std">
+                    <label for="std">std</label>
+                    
+                    <input type="radio" class="ct" id="ftt" name="ctype" value="FTT">
+                    <label for="ftt">ftt</label>
+                </div>
+            </div>
+            <input type="text" name="duration" id="duration" placeholder="duration"><br>
+            <button type="button" onclick="calcbill()">Calculate Bill</button>
+            <button type="button" onclick="reset()">Reset</button>
+        </form>
+        
+    </div>
+    
+    <div class="table">
+        <table style="border: 3px solid black;">
+            <thead>
+                <tr>
+                    <th>Connection Type</th>
+                    <th>Call Limit</th>
+                    <th>Monthly Rental</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Pre</td>
+                    <td>500</td>
+                    <td>75</td>
+                </tr>
+                <tr>
+                    <td>Post</td>
+                    <td>Unlimited</td>
+                    <td>150</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+   
+    <div class="billBlock">
+        <h3>BILL</h3>
+        <p id="bill"></p>
+    </div>
+    <script>
+        // function reset() {
+        //     document.getElementById('name').value = '';
+        //     document.getElementById('email').value = '';
+        //     document.getElementById('number').value = '';
+        //     document.querySelectorAll('input[name="ctype"]').forEach((el) => el.checked = false);
+        //     document.getElementById('duration').value = '';
+        //     document.getElementById('type').value = 'pre';  
+        // }
+        function reset(){
+            document.querySelector('form').reset();
+        }
+
+        function calcbill() {
+            var ctype = document.getElementById('type').value;
+            var d = document.getElementById('duration').value;
+            var cost = 0
+            if(ctype === 'pre'){
+                cost = 75
+            }else{
+                cost = 150
+            }
+            const bill = cost * d;
+            document.getElementById('bill').innerHTML = bill;
+            console.log(bill)
+            console.log(ctype);
+            
+        }
+    </script>
+</body>
+</html>

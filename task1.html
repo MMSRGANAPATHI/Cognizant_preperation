@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .image-display {
+            display: flex;
+        }
+
+        .thumbnail {
+            margin-right: 50px;
+        }
+
+        img {
+            height: 100px;
+            width: 100px;
+            cursor: pointer;
+        }
+
+        .bigimage img {
+            width: 300px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="image-display">
+            <img onclick="showimage(this)" id="image" src="https://th.bing.com/th/id/OIP.RG58DaO7kXIPA2oTSLS6kAHaE8?w=276&h=184&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="t1">
+            <img onclick="showimage(this)" id="image" src="https://th.bing.com/th/id/OIP.E3UNwm389l_qdOdJ6zbhCAHaE8?w=281&h=187&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="t2">
+            <img onclick="showimage(this)" id="image" src="https://www.hdwallpaper.nu/wp-content/uploads/2015/06/1843513.jpg" alt="t3">
+            <img onclick="showimage(this)" id="image" src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Flower_jtca001.jpg" alt="t4">
+    </div>
+    <div class="bigimage">
+        <img src="" alt="" id="bigImage">
+    </div>
+
+    <script>
+        function showimage(divElement) {
+            
+            const bigImage = document.getElementById('bigImage');
+            bigImage.src = divElement.src; 
+        }
+    </script>
+</body>
+</html>
